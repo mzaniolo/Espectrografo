@@ -30,16 +30,18 @@
 
 /******* Includes ***********/
 #include "fsl_device_registers.h"
-//#include "Definitions.h"
-//#include "Interface/Serial.h"
-//#include "mcg_hal.h"
+#include "Definitions.h"
+#include "Interface/Serial.h"
+#include "mcg_hal.h"
+#include "util.h"
 /****************************/
-/*
+
 void main_init(){
 	mcg_clockInit();
 	setConfig();
+
 }
-*/
+
 
 int main(void)
 {
@@ -48,7 +50,7 @@ int main(void)
 	PORTD_PCR1 = PORT_PCR_MUX(1u);
 	GPIOD_PDDR |= GPIO_PDDR_PDD( 0x01U << 1U);
 	GPIOD_PSOR = GPIO_PSOR_PTSO( (0x01U << 1U) );
-
+	main_init();
     /* This for loop should be replaced. By default this loop allows a single stepping. */
     for (;;) {
 

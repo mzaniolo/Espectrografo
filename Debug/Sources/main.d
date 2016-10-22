@@ -8,7 +8,10 @@ Sources/main.o: ../Sources/main.c \
  ../SDK/platform/devices/MKL25Z4/include/MKL25Z4_extension.h \
  ../SDK/platform/devices/MKL25Z4/include/MKL25Z4.h \
  ../SDK/platform/devices/MKL25Z4/include/fsl_bitaccess.h \
- ../SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h
+ ../SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h \
+ ../Sources/Definitions.h \
+ ../SDK/platform/devices/MKL25Z4/include/MKL25Z4.h \
+ ../Sources/Interface/Serial.h ../Sources/mcg_hal.h ../Sources/util.h
 
 ../SDK/platform/devices/fsl_device_registers.h:
 
@@ -29,3 +32,13 @@ Sources/main.o: ../Sources/main.c \
 ../SDK/platform/devices/MKL25Z4/include/fsl_bitaccess.h:
 
 ../SDK/platform/devices/MKL25Z4/include/MKL25Z4_features.h:
+
+../Sources/Definitions.h:
+
+../SDK/platform/devices/MKL25Z4/include/MKL25Z4.h:
+
+../Sources/Interface/Serial.h:
+
+../Sources/mcg_hal.h:
+
+../Sources/util.h:
