@@ -28,5 +28,6 @@ S_UPPER_DEPS :=
 SUBDIRS := \
 Sources \
 Sources/Interface \
+Sources/Atraso \
 Project_Settings/Startup_Code \
 

@@ -24,6 +24,8 @@
 
 /*                 END OF General uC definitions         */
 
+#define TRUE						1
+#define FALSE						0
 
 
 #endif /* SOURCES_DEFINITIONS_H_ */

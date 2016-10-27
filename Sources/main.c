@@ -32,29 +32,29 @@
 #include "fsl_device_registers.h"
 #include "Definitions.h"
 #include "Interface/Serial.h"
+#include "Atraso/Motor.h"
 #include "mcg_hal.h"
 #include "util.h"
 /****************************/
-
+#include "Atraso/Uart.h"
 void main_init(){
 	mcg_clockInit();
 	setConfig();
+	uart1_init(9600);
 
 }
 
 
-int main(void)
-{
+int main(void){
 
-	SIM_SCGC5 |= SIM_SCGC5_PORTD(0x01U);
-	PORTD_PCR1 = PORT_PCR_MUX(1u);
-	GPIOD_PDDR |= GPIO_PDDR_PDD( 0x01U << 1U);
-	GPIOD_PSOR = GPIO_PSOR_PTSO( (0x01U << 1U) );
 	main_init();
-    /* This for loop should be replaced. By default this loop allows a single stepping. */
-    for (;;) {
+char cmd[] = "OK\n\r";
 
+    while(TRUE) {
 
+    	uart1_write(&cmd);
+    	//uart1_read(&cmd);
+    	//sendBuffer(&cmd);
     }
     /* Never leave main */
     return 0;

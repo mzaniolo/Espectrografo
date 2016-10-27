@@ -226,7 +226,7 @@ void mcg_initRtcOsc(void)
         .enableCapacitor8p   = RTC_SC8P_ENABLE_CONFIG,
         .enableCapacitor16p  = RTC_SC16P_ENABLE_CONFIG,
         .enableOsc           = RTC_OSC_ENABLE_CONFIG,
-   //     .enableClockOutput   = RTC_CLK_OUTPUT_ENABLE_CONFIG,
+     //   .enableClockOutput   = RTC_CLK_OUTPUT_ENABLE_CONFIG,
     };
 
     /* OSC RTC initialization */
