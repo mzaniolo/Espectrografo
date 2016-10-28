@@ -24,8 +24,8 @@ void uart1_init(int baud_rate)
 	SIM_SCGC4 |= SIM_SCGC4_UART1_MASK;
 
 	// Enable the pins of UART output
-	PORTE_PCR0 |= PORT_PCR_MUX(3); // Select the function of       PTE0 to be UART1TX
-	PORTE_PCR1 |= PORT_PCR_MUX(3); // Select the function of       PTE1 to be UART1RX
+	PORTE_PCR0 |= PORT_PCR_MUX(3); // Select the function of       PTE0 to be UART1TX - AZUL
+	PORTE_PCR1 |= PORT_PCR_MUX(3); // Select the function of       PTE1 to be UART1RX - AMARELO
 
 	UART1_C2 = 0x0;
 	// Make sure that the Transmitter and Receiver is disabled

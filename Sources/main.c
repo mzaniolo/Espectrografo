@@ -36,11 +36,11 @@
 #include "mcg_hal.h"
 #include "util.h"
 /****************************/
-#include "Atraso/Uart.h"
+
 void main_init(){
 	mcg_clockInit();
 	setConfig();
-	uart1_init(9600);
+	motor_init();
 
 }
 
@@ -48,13 +48,12 @@ void main_init(){
 int main(void){
 
 	main_init();
-char cmd[] = "OK\n\r";
-
+double pos = 10.0;
     while(TRUE) {
 
-    	uart1_write(&cmd);
-    	//uart1_read(&cmd);
-    	//sendBuffer(&cmd);
+    	mv_absolute(pos);
+    	mv_relative(pos);
+
     }
     /* Never leave main */
     return 0;

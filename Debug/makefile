@@ -56,7 +56,7 @@ all: Espc.elf secondary-outputs
 Espc.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wall  -g3 -T "MKL25Z128xxx4_flash.ld" -Xlinker --gc-sections -L"/home/matheus/Documentos/Espectrografo/Espc/Project_Settings/Linker_Files" -L/opt/Freescale/SKD1.3/lib/ksdk_platform_lib/kds/KL25Z4/debug -Wl,-Map,"Espc.map" -specs=nosys.specs -specs=nano.specs -Xlinker -z -Xlinker muldefs -o "Espc.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wall  -g3 -T "MKL25Z128xxx4_flash.ld" -Xlinker --gc-sections -L"/home/matheus/Documentos/Espectrografo/Espc/Project_Settings/Linker_Files" -L/opt/Freescale/SKD1.3/lib/ksdk_platform_lib/kds/KL25Z4/debug -Wl,-Map,"Espc.map" -u _printf_float -u _scanf_float -specs=nosys.specs -specs=nano.specs -Xlinker -z -Xlinker muldefs -u _printf_float -o "Espc.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
