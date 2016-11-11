@@ -36,7 +36,7 @@
 #include "mcg_hal.h"
 #include "util.h"
 /****************************/
-
+#include "Atraso/Uart.h"
 void main_init(){
 	mcg_clockInit();
 	setConfig();
@@ -48,11 +48,11 @@ void main_init(){
 int main(void){
 
 	main_init();
-double pos = 10.0;
+double pos = 0;
     while(TRUE) {
 
     	mv_absolute(pos);
-    	mv_relative(pos);
+//    	mv_relative(pos);
 
     }
     /* Never leave main */

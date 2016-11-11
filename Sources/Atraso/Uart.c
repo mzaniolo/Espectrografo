@@ -11,7 +11,7 @@
 #include "fsl_device_registers.h"
 #include "fsl_os_abstraction.h"
 
-#define SIZE	10
+#define SIZE	256
 
 void uart1_init(int baud_rate)
 {
@@ -52,7 +52,7 @@ void uart1_write(char *cmd){
 	for(int i = 0; i<SIZE; i++){
 		while((UART1_S1 & UART_S1_TDRE_MASK) == 0); //Espera esvaziar o buffer
 		UART1_D = cmd[i];
-		if(cmd[i] == '\n' || cmd[i] == '\r') break;
+		if(cmd[i] == '\r') break;
 	}
 
 }

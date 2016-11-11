@@ -11,7 +11,7 @@
 
 
 void motor_init(){
-	uart1_init(9600);
+	uart1_init(57600);
 }
 
 void home (){
@@ -26,7 +26,7 @@ Error mv_absolute(double pos) {
 
 	char str[32]; //str[] = "PA";
 	//snprintf(posicao, sizeof(posicao), "%g", pos);
-	sprintf(str,"PA%f\n", pos); //3 casas de presisao, vai dar????
+	sprintf(str,"1PA%f\n\r", pos); //3 casas de presisao, vai dar????
 	//strcat(str, posicao);
 	//strcat(str, "\n\r");
 	uart1_write(str);
@@ -46,7 +46,7 @@ Error mv_relative (double pos){
 	}
 
 	char str[50];//, str[] = "PR";
-	sprintf(str, "PR%f\n\r", pos); //3 casas de presisao, vai dar????
+	sprintf(str, "1PR%f\n\r", pos); //3 casas de presisao, vai dar????
 	//strcat(str, posicao);
 	//strcat(str, "\n\r");
 	uart1_write(str);

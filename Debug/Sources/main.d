@@ -12,7 +12,7 @@ Sources/main.o: ../Sources/main.c \
  ../Sources/Definitions.h \
  ../SDK/platform/devices/MKL25Z4/include/MKL25Z4.h \
  ../Sources/Interface/Serial.h ../Sources/Atraso/Motor.h \
- ../Sources/mcg_hal.h ../Sources/util.h
+ ../Sources/mcg_hal.h ../Sources/util.h ../Sources/Atraso/Uart.h
 
 ../SDK/platform/devices/fsl_device_registers.h:
 
@@ -45,3 +45,5 @@ Sources/main.o: ../Sources/main.c \
 ../Sources/mcg_hal.h:
 
 ../Sources/util.h:
+
+../Sources/Atraso/Uart.h:
