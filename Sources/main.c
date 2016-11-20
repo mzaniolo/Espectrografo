@@ -51,8 +51,8 @@ int main(void){
 double pos = 0;
     while(TRUE) {
 
-    	mv_absolute(pos);
-//    	mv_relative(pos);
+//    	mv_absolute(pos);
+    	mv_relative(pos);
 
     }
     /* Never leave main */

@@ -5,13 +5,13 @@
  *      Author: root
  */
 
-
+#include "Uart.h"
 #include "fsl_uart_hal.h"
 #include "fsl_clock_manager.h"
 #include "fsl_device_registers.h"
 #include "fsl_os_abstraction.h"
 
-#define SIZE	256
+
 
 void uart1_init(int baud_rate)
 {

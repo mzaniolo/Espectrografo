@@ -8,7 +8,7 @@
 #ifndef SOURCES_ATRASO_UART_H_
 #define SOURCES_ATRASO_UART_H_
 
-
+#define SIZE	256
 
 void uart1_init(int baud_rate);
 void uart1_write(char *cmd);

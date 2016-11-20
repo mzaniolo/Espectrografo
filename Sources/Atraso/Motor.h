@@ -25,4 +25,6 @@ void stop ();
 
 double getPosicao();
 
+void motor_CommunicationTimeout();
+
 #endif /* SOURCES_ATRASO_MOTOR_H_ */
