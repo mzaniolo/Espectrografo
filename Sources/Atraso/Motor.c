@@ -45,7 +45,10 @@ Error mv_absolute(double pos) {
 Error mv_relative (double pos){
 
 	//esperar parar
-	double posAtual = getPosicao();
+	double posAtual;
+	Error erro = getPosicao(&posAtual);
+
+	if (erro == Timeout) return Timeout;
 
 	double posFutura = posAtual + pos;
 
@@ -65,8 +68,7 @@ void stop (){
 	uart1_write("1ST\n\r");
 }
 
-double getPosicao(){
-
+Error getPosicao(double *pos){
 
 	uart1_write("1TP\n\r");
 
@@ -75,11 +77,12 @@ double getPosicao(){
 	motor_StartTimer();
 	for (int i = 0; i<SIZE;i++){
 		while (uart1_read(&str[i]) == 0 && !timeout); //espera chegar cmd
-		if (timeout) break; /* Erro ??? */
+		if (timeout) return Timeout;
 		if (str[i] == '\n' || str[i] == '\r') break;
 	}
 
-	/** Processar a string aqui **/ //string do tipo 1TP10.2
 
-	return 1.0; //mudar aqui
+	sscanf(str, "1TP%lf", pos);
+
+	return None;
 }
