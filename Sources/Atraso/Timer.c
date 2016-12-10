@@ -12,6 +12,7 @@
 #include "fsl_os_abstraction.h"
 #include "fsl_pit_hal.h"
 #include "MKL25Z4.h"
+#include "fsl_interrupt_manager.h"
 
 
 void timer_init(int iTempo){
@@ -32,10 +33,12 @@ void timer_init(int iTempo){
 	// Initialize the NVIC to enable the PIT interrupt
 
 
+	NVIC_ClearPendingIRQ(PIT_IRQn);
+//	NVIC->ICPR[0] = 1 << PIT_IRQn;
 
-//	NVIC->ICPR |= 1 << ((INT_PIT - 16) % 32);
-//
-//	NVIC->ISER |= 1 << ((INT_PIT - 16) % 32);
+	NVIC_EnableIRQ(PIT_IRQn);
+//	NVIC->ISER[0] = 1 << PIT_IRQn;
+
 
 }
 
@@ -46,7 +49,7 @@ void timer_start(){
 
 void PIT_IRQHandler(void){
 
-	PIT_TCTRL0 = 0;     // Disable timer
+	PIT_TCTRL0 &= ~PIT_TCTRL_TEN_MASK;     // Disable timer
 
 	PIT_TFLG0 |= PIT_TFLG_TIF_MASK;     // Clear the timer interrupt flag
 

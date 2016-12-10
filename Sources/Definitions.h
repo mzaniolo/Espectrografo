@@ -27,5 +27,6 @@
 #define TRUE						1
 #define FALSE						0
 
+//#define PIT_IRQn					22U
 
 #endif /* SOURCES_DEFINITIONS_H_ */
