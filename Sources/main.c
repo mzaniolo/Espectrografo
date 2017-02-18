@@ -37,22 +37,84 @@
 #include "util.h"
 /****************************/
 #include "Atraso/Uart.h"
+#include <stdio.h>
+
+
+int iTP = 0, iFP = 0;
+int iTI = 0, iFI = 0;
+int iTF = 0, iFF = 0;
+
 void main_init(){
 	mcg_clockInit();
-	setConfig();
+	serial_init();
 	motor_init();
 
 }
 
+/* TESTE */
+void teste(){
+
+}
+/* TESTE */
 
 int main(void){
 
 	main_init();
-double pos = 0;
+	char cmd[256];
+	int aux = 0;
     while(TRUE) {
 
-//    	mv_absolute(pos);
-    	mv_relative(pos);
+
+    	for(int i = 0; i<256;i++){
+    		while (readBuffer(&cmd[i]) == 0){}
+    		if(cmd[i] == '\n' || cmd[i] == '\r') break;
+    	}
+
+    	//serial_GetCmd(cmd);
+    	sscanf(&cmd[2], "%d\r", &aux);
+    	switch(cmd[1]){
+    	case 'i':
+    	case 'I':
+    		if (cmd[0] == 'T' || cmd[0] == 't'){
+    			iTI = aux;
+    		} else if (cmd[0] == 'F' || cmd[0] == 'f'){
+    			iFI = aux;
+    		} else {
+
+    		}
+    		break;
+    	case 'p':
+    	case 'P':
+    		if (cmd[0] == 'T' || cmd[0] == 't'){
+				iTP = aux;
+			} else if (cmd[0] == 'F' || cmd[0] == 'f'){
+				iFP = aux;
+			} else {
+
+			}
+    		break;
+    	case 'f':
+    	case 'F':
+    		if (cmd[0] == 'T' || cmd[0] == 't'){
+				iTF = aux;
+			} else if (cmd[0] == 'F' || cmd[0] == 'f'){
+				iFF = aux;
+			} else {
+
+			}
+			break;
+    	case 's':
+    	case 'S':
+    		sendBuffer("20\n");
+			for(int i = 0; i<20; i++){
+				serial_SendPoint(i, cos(i));
+			}
+			break;
+
+    	}
+    	if (iTP != 0 && iFP != 0 && iTI != 0 && iFI != 0 && iTF != 0 && iFF != 0){
+
+    	}
 
     }
     /* Never leave main */

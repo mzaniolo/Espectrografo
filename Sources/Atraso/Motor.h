@@ -8,7 +8,7 @@
 #ifndef SOURCES_ATRASO_MOTOR_H_
 #define SOURCES_ATRASO_MOTOR_H_
 
-typedef enum Error_Codes {None, OutOfRange, Timeout}Error;
+typedef enum Error_Codes {None, OutOfRange, Timeout, NotReferenced, ControllerInvalidState, CotrollerDisable}Error;
 
 #define LIM_SUP 	75
 #define LIM_INF		-75

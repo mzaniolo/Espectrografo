@@ -48,4 +48,7 @@ void debugUart_init(void)
 
     /* init the debug console */
     DbgConsole_Init(BOARD_DEBUG_UART_INSTANCE, BOARD_DEBUG_UART_BAUD, kDebugConsoleLPSCI);
+
+   // UART0_C2 |= UART_C2_RIE_MASK;
 }
+

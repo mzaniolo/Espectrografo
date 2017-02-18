@@ -18,7 +18,7 @@
 /* Input params:       n/a                           */
 /* Output params:       n/a                          */
 /* ***************************************************/
-void setConfig(void);
+void serial_init(void);
 
 /* ********************************************************/
 /* Method name:        sendBuffer                         */
@@ -32,6 +32,8 @@ void sendBuffer(char *str);
 
 char readBuffer(char *cmd);
 
+void serial_SendPoint(int PointNumber, float Point);
 
+void serial_GetCmd (char *cmd);
 
 #endif /* SOURCES_INTERFACE_SERIAL_H_ */

@@ -3,6 +3,7 @@
 #include "fsl_debug_console.h"
 #include "Definitions.h"
 #include "MKL25Z4_extension.h"
+#include <stdio.h>
 
 /* ***************************************************/
 /* Method name:        setConfig                     */
@@ -11,7 +12,7 @@
 /* Input params:       n/a                           */
 /* Output params:       n/a                          */
 /* ***************************************************/
-void setConfig(){
+void serial_init(){
 	SIM_SCGC5 |= SIM_SCGC5_PORTA(CGC_CLOCK_ENABLED);
 	debugUart_init();
 }
@@ -56,4 +57,18 @@ char readBuffer(char *cmd){
     }
     return 0;
 
+}
+
+void serial_SendPoint(int PointNumber, float Point){
+
+	char ponto[18];
+	sprintf(ponto, "%d|%lf\n\r", PointNumber, Point);
+	sendBuffer(ponto);
+}
+
+void serial_GetCmd (char *cmd){
+	for (int i = 0; i<BUFF_SIZE;i++){
+		while (readBuffer(cmd[i]) == 0); //espera chegar cmd
+		if (cmd[i] == '\n' || cmd[i] == '\r') break;
+	}
 }
