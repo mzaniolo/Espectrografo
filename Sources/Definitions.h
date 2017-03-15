@@ -29,4 +29,6 @@
 
 //#define PIT_IRQn					22U
 
+#define CHANNEL						0U
+
 #endif /* SOURCES_DEFINITIONS_H_ */
