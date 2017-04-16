@@ -29,6 +29,24 @@
 
 //#define PIT_IRQn					22U
 
+
+
+
+/*                    ADC Definitions              */
 #define CHANNEL						0U
+#define ADC_ADICLK 					1U
+#define ADC_ADCMODE 				3U
+#define ADC_ADLSMP					0U
+#define ADC_ADIV  					0U
+#define ADC_ADLPC					0U
+#define ADC_REFSEL					0U
+#define ADC_DMAEN					0U
+#define ADC_ACFE					0U
+#define ADC_ADTRG					0U
+#define ADC_ADLSTS					0U
+#define ADC_ADHSC           		0U
+#define ADC_ADACKEN					0U
+#define ADC_MUXSEL					0U
+/*                 END OF ADC definitions             */
 
 #endif /* SOURCES_DEFINITIONS_H_ */

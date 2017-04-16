@@ -44,6 +44,7 @@ void timer_init(int iTempo){
 
 void timer_start(){
 	PIT_TCTRL0 |= PIT_TCTRL_TEN_MASK;
+	timeout = 0;
 }
 
 
@@ -53,6 +54,6 @@ void PIT_IRQHandler(void){
 
 	PIT_TFLG0 |= PIT_TFLG_TIF_MASK;     // Clear the timer interrupt flag
 
-	motor_CommunicationTimeout();
+	timeout = 1;
 
 }

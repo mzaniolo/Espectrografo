@@ -32,7 +32,8 @@
 #include "fsl_device_registers.h"
 #include "Definitions.h"
 #include "Interface/Serial.h"
-#include "Atraso/Motor.h"
+#include "Atraso/Atraso.h"
+#include "Detector/Detector.h"
 #include "mcg_hal.h"
 #include "util.h"
 /****************************/
@@ -41,8 +42,8 @@
 void main_init(){
 	mcg_clockInit();
 	serial_init();
-	motor_init();
-
+	atraso_init();
+	detector_Init();
 }
 
 
@@ -51,20 +52,13 @@ int main(void){
 	main_init();
     while(TRUE) {
 
-
-
-/*
-    	case 's':
-    	case 'S':
-    		sendBuffer("20\n");
-			for(int i = 0; i<20; i++){
-				serial_SendPoint(i, cos(i));
+		if (ucStart == 1) {
+			for(int i = iTI; i<= iTF; i += iTP){
+				atraso_MoverRelativo(iTP);
+				//serial_SendPoint(i, detector_getData());
 			}
-			break;
+		}
 
-    	}
-
-*/
     }
     /* Never leave main */
     return 0;

@@ -11,4 +11,7 @@
 void timer_init(int iTempo);
 void timer_start();
 
+volatile unsigned int timeout = 0;
+
+
 #endif /* SOURCES_ATRASO_TIMER_H_ */

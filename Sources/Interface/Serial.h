@@ -11,6 +11,18 @@
 
 #define BUFF_SIZE	256U
 
+int iTP = 0, iFP = 0;
+int iTI = 0, iFI = 0;
+int iTF = 0, iFF = 0;
+unsigned char ucStart = 0;
+
+typedef struct estrutura_pontos{
+	int indice;
+	double tempo;
+	double frequencia;
+	double valor;
+}Ponto;
+
 /* ***************************************************/
 /* Method name:        setConfig                     */
 /* Method description:  This method initialize the   */
@@ -32,7 +44,7 @@ void sendBuffer(char *str);
 
 char readBuffer(char *cmd);
 
-void serial_SendPoint(int PointNumber, float Point);
+void serial_SendPoint(Ponto ponto);
 
 void serial_GetCmd (char *cmd);
 

@@ -25,6 +25,6 @@ void stop ();
 
 Error getPosicao(double *pos);
 
-void motor_CommunicationTimeout();
+Error WaitStop();
 
 #endif /* SOURCES_ATRASO_MOTOR_H_ */

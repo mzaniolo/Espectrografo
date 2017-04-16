@@ -10,9 +10,9 @@ char cmd[BUFF_SIZE];
 unsigned char count = 0;
 
 /******* TESTE ******/
-int iTP = 0, iFP = 0;
-int iTI = 0, iFI = 0;
-int iTF = 0, iFF = 0;
+//int iTP = 0, iFP = 0;
+//int iTI = 0, iFI = 0;
+//int iTF = 0, iFF = 0;
 /******* TESTE ******/
 
 /* ***************************************************/
@@ -73,11 +73,11 @@ char readBuffer(char *cmd){
 
 }
 
-void serial_SendPoint(int PointNumber, float Point){
+void serial_SendPoint(Ponto ponto){
 
-	char ponto[18];
-	sprintf(ponto, "%d|%lf\n\r", PointNumber, Point);
-	sendBuffer(ponto);
+	char str[18];
+	sprintf(str, "%d|%lf|%lf|%lf\n\r", ponto.indice, ponto.tempo, ponto.frequencia, ponto.valor);
+	sendBuffer(str);
 }
 
 void serial_GetCmd (char *cmd){
@@ -92,9 +92,9 @@ void serial_ParseCommand(char *cmd){
 	int aux;
 
 	if((cmd[0] == 'C' || cmd[0] == 'c') && (cmd[1] == '\n' || cmd[1] == '\r')){
-		//começar
+		ucStart = 1U;
 	}else if((cmd[0] == 'P' || cmd[0] == 'p') && (cmd[1] == '\n' || cmd[1] == '\r')){
-		//Parar
+		ucStart = 0U;
 	}
 
 	sscanf(&cmd[2], "%d\r", &aux);

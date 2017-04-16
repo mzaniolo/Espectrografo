@@ -10,16 +10,13 @@
 #include "Timer.h"
 #include <stdio.h>
 
-volatile unsigned int timeout = 0;
+
 
 void motor_init(){
 	uart1_init(57600);
 	timer_init(1); /* verificar unidade */
 }
 
-void motor_CommunicationTimeout(){
-	timeout = 1;
-}
 
 void motor_StartTimer(){
 	timeout = 0;
