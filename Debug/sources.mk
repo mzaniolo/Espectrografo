@@ -28,6 +28,7 @@ S_UPPER_DEPS :=
 SUBDIRS := \
 Sources \
 Sources/Interface \
+Sources/Frequencia \
 Sources/Detector \
 Sources/Atraso \
 Project_Settings/Startup_Code \

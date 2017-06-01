@@ -16,13 +16,14 @@
 
 
 void timer_init(int iTempo){
+	// iTempo em ms
 
 	// PIT Initialization
 
 
 	SIM_SCGC6 |= SIM_SCGC6_PIT_MASK;     // Enable the clock to the PIT module
 
-	PIT_LDVAL0 = (unsigned int) (CLOCK_SYS_GetBusClockFreq() * iTempo);     // Default start value
+	PIT_LDVAL0 = (unsigned int) (CLOCK_SYS_GetBusClockFreq() * iTempo)/1000;     // Default start value
 
 	PIT_MCR = 0;	//PIT_MCR_FRZ_MASK;     // Enable clock for timer, freeze timer in debug mode
 

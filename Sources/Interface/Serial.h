@@ -20,7 +20,7 @@ typedef struct estrutura_pontos{
 	int indice;
 	double tempo;
 	double frequencia;
-	double valor;
+	int valor;
 }Ponto;
 
 /* ***************************************************/
@@ -43,6 +43,8 @@ void sendBuffer(char *str);
 
 
 char readBuffer(char *cmd);
+
+void serial_SendAllPoint(Ponto *ponto, int num);
 
 void serial_SendPoint(Ponto ponto);
 

@@ -4,16 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Sources/Flash.c \
 ../Sources/main.c \
 ../Sources/mcg_hal.c \
 ../Sources/util.c 
 
 OBJS += \
+./Sources/Flash.o \
 ./Sources/main.o \
 ./Sources/mcg_hal.o \
 ./Sources/util.o 
 
 C_DEPS += \
+./Sources/Flash.d \
 ./Sources/main.d \
 ./Sources/mcg_hal.d \
 ./Sources/util.d 

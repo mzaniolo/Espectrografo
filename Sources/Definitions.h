@@ -49,4 +49,27 @@
 #define ADC_MUXSEL					0U
 /*                 END OF ADC definitions             */
 
+/*                 Flash Definitions                  */
+#define CCIEMask					1UL << 7
+#define ClearErrors					0x30
+#define EraseFlash					0x09
+#define WriteLong					0x06
+/*                END OF Flash Defintions             */
+
+#define B0_PIN                     0U                           /* Pino bobina 0 */
+#define B0_OUTPUT              (GPIO_OUTPUT << B0_PIN)
+#define B0_ALT 						0x01u 						/* GPIO alternative */
+
+#define B1_PIN                     1U                           /* Pino bobina 1 */
+#define B1_OUTPUT              (GPIO_OUTPUT << B1_PIN)
+#define B1_ALT 						0x01u 						/* GPIO alternative */
+
+#define B2_PIN                     2U                           /* Pino bobina 2 */
+#define B2_OUTPUT              (GPIO_OUTPUT << B2_PIN)
+#define B2_ALT 						0x01u 						/* GPIO alternative */
+
+#define B3_PIN                     3U                           /* Pino bobina 3 */
+#define B3_OUTPUT              (GPIO_OUTPUT << B3_PIN)
+#define B3_ALT 						0x01u 						/* GPIO alternative */
+
 #endif /* SOURCES_DEFINITIONS_H_ */

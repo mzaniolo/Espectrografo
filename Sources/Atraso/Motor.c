@@ -14,7 +14,7 @@
 
 void motor_init(){
 	uart1_init(57600);
-	timer_init(1); /* verificar unidade */
+	timer_init(1000); /* verificar unidade */
 }
 
 
@@ -61,6 +61,8 @@ Error mv_relative (double pos){
 	if (erro == Timeout) return Timeout;
 
 	double posFutura = posAtual + pos;
+
+//	double posFutura = pos;
 
 	if (posFutura > LIM_SUP || posFutura < LIM_INF){
 		return OutOfRange;

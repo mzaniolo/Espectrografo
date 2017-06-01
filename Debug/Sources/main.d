@@ -12,7 +12,8 @@ Sources/main.o: ../Sources/main.c \
  ../Sources/Definitions.h \
  ../SDK/platform/devices/MKL25Z4/include/MKL25Z4.h \
  ../Sources/Interface/Serial.h ../Sources/Atraso/Atraso.h \
- ../Sources/Detector/Detector.h ../Sources/mcg_hal.h ../Sources/util.h
+ ../Sources/Frequencia/MotorPasso.h ../Sources/Detector/Detector.h \
+ ../Sources/mcg_hal.h ../Sources/util.h ../Sources/Flash.h
 
 ../SDK/platform/devices/fsl_device_registers.h:
 
@@ -42,8 +43,12 @@ Sources/main.o: ../Sources/main.c \
 
 ../Sources/Atraso/Atraso.h:
 
+../Sources/Frequencia/MotorPasso.h:
+
 ../Sources/Detector/Detector.h:
 
 ../Sources/mcg_hal.h:
 
 ../Sources/util.h:
+
+../Sources/Flash.h:

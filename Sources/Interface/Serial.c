@@ -73,10 +73,19 @@ char readBuffer(char *cmd){
 
 }
 
+void serial_SendAllPoint(Ponto *ponto, int num){
+	char str[20];
+	sprintf(str, "%d\n\r", num);
+	sendBuffer(str);
+	for(int i = 0; i<=num;i++){
+		serial_SendPoint(ponto[i]);
+	}
+}
+
 void serial_SendPoint(Ponto ponto){
 
-	char str[18];
-	sprintf(str, "%d|%lf|%lf|%lf\n\r", ponto.indice, ponto.tempo, ponto.frequencia, ponto.valor);
+	char str[256];
+	sprintf(str, "%d|%lf|%lf|%d\n\r", ponto.indice, ponto.tempo, ponto.frequencia, ponto.valor);
 	sendBuffer(str);
 }
 

@@ -33,9 +33,11 @@
 #include "Definitions.h"
 #include "Interface/Serial.h"
 #include "Atraso/Atraso.h"
+#include "Frequencia/MotorPasso.h"
 #include "Detector/Detector.h"
 #include "mcg_hal.h"
 #include "util.h"
+#include "Flash.h"
 /****************************/
 
 
@@ -44,20 +46,60 @@ void main_init(){
 	serial_init();
 	atraso_init();
 	detector_Init();
+	motor_passo_init();
 }
-
 
 int main(void){
 
+
 	main_init();
+
+//	long int value = 2000123456;
+//
+//	int addr = 0x1FFF0;
+//	Ponto aux;
+//	long int *teste;
+//	teste = (long int *)addr;
+//
+//	if(teste == value){
+//		aux.valor = *teste;
+//		aux.indice  = 0.0;
+//		aux.tempo = 200.0;
+//		aux.frequencia = 90.0;
+//	}else{
+//		flash_write(addr, value);
+//		aux.valor = *teste;
+//		aux.indice  = 0.0;
+//		aux.tempo = 0;
+//		aux.frequencia = 0;
+//	}
+
+
+	Ponto *pontos;
+	int Ind;
     while(TRUE) {
 
 		if (ucStart == 1) {
-			for(int i = iTI; i<= iTF; i += iTP){
+			int numPontos = (abs((iTF - iTI)/iTP) + 1) * (abs((iFF - iFI)/iFP) + 1);
+			pontos = malloc(sizeof(Ponto) * numPontos);
+			Ind = 0;
+			for(int t = iTI; abs(t)<= abs(iTF); t += iTP){
 				atraso_MoverRelativo(iTP);
-				//serial_SendPoint(i, detector_getData());
+				for (int f = iFI; f<=iFF; f += iFP){
+					motor_MoverPassos(iFP, 1);
+					pontos[Ind].valor = detector_getData();
+					pontos[Ind].indice  = Ind;
+					pontos[Ind].tempo = t;
+					pontos[Ind].frequencia = f;
+					Ind++;
+				}
 			}
+			ucStart = 0;
+			serial_SendAllPoint(pontos, Ind);
+			free(pontos);
 		}
+
+
 
     }
     /* Never leave main */
