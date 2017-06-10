@@ -90,3 +90,9 @@ void motor_MoverPassos(int passos, int dir){
 		util_genDelay1ms();
 	}
 }
+
+void motor_MoverGraus(double graus, int dir){
+	const int conv = 325.95; //[passos/rad]
+
+	motor_MoverPassos(graus* conv, dir);
+}

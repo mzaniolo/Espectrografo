@@ -54,27 +54,6 @@ int main(void){
 
 	main_init();
 
-//	long int value = 2000123456;
-//
-//	int addr = 0x1FFF0;
-//	Ponto aux;
-//	long int *teste;
-//	teste = (long int *)addr;
-//
-//	if(teste == value){
-//		aux.valor = *teste;
-//		aux.indice  = 0.0;
-//		aux.tempo = 200.0;
-//		aux.frequencia = 90.0;
-//	}else{
-//		flash_write(addr, value);
-//		aux.valor = *teste;
-//		aux.indice  = 0.0;
-//		aux.tempo = 0;
-//		aux.frequencia = 0;
-//	}
-
-
 	Ponto *pontos;
 	int Ind;
     while(TRUE) {
